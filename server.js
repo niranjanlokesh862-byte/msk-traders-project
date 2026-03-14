@@ -37,12 +37,11 @@ async function connectDB() {
     console.log("✅ Connected to SQL Server (LocalDB) successfully!");
     await createTables();
   } catch (err) {
-    console.error("❌ SQL Server connection failed:");
-    console.error("   Message :", err.message);
-    console.error("   Code    :", err.code);
-    console.error("   Full    :", JSON.stringify(err, null, 2));
-    process.exit(1);
-  }
+  console.error("❌ SQL Server connection failed:");
+  console.error(err.message);
+
+  console.log("⚠️ Running without database (cloud demo mode)");
+}
 }
 
 // ============================================
