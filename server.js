@@ -4,7 +4,7 @@
 // ============================================
 
 const express = require("express");
-const sql     = require("mssql/msnodesqlv8");
+const sql     = require("mssql");
 const cors    = require("cors");
 const path    = require("path");
 
@@ -19,7 +19,11 @@ app.use(express.static(path.join(__dirname)));
 //  SQL SERVER CONFIG — LocalDB Windows Auth
 // ============================================
 const dbConfig = {
-  connectionString: "Driver={ODBC Driver 17 for SQL Server};Server=LOKESHSABARI;Database=MSKTraders;Trusted_Connection=Yes;"
+  server: "LOKESHSABARI",
+  database: "MSKTraders",
+  options: {
+    trustServerCertificate: true
+  }
 };
 
 // ============================================
